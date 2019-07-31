@@ -22,6 +22,8 @@ def upload(resquest):
     # queryset = UploadImage
     if resquest.method == 'POST':
         foto = resquest.FILES['image']
-        # image = UploadImage.objects.create(image=foto)
+        os.remove("media/image/foto.jpg")
+        image = UploadImage.objects.create(image=foto)
+        processa1()
         content_type = 'image/' + '*'
         return FileResponse(open('media/image/imgRgb.jpg', 'rb'), content_type=content_type)

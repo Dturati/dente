@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 import os
 
 def processa1():
-    test_image = cv2.imread('media/image/foto6.jpg')
+    test_image = cv2.imread('media/image/foto.jpg')
     test_image_gray = cv2.cvtColor(test_image, cv2.COLOR_BGR2GRAY)
 
-    cv2.imwrite('media/image/fotoSmoke.jpg',test_image_gray)
+    # cv2.imwrite('media/image/fotoSmoke.jpg',test_image_gray)
 
     def convertToRGB(image):
         return cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -22,6 +22,8 @@ def processa1():
          cv2.rectangle(test_image, (x, y), (x+w, y+h), (0, 255, 0), 2)
 
     img_rgb = convertToRGB(test_image)
+
+    os.remove("media/image/imgRgb.jpg")
 
     cv2.imwrite('media/image/imgRgb.jpg',img_rgb)
 
